@@ -101,7 +101,7 @@ if (auth.ldap.enabled) {
     }
   ))
 }
-
+/*
 if (auth.alone.enabled) {
   passport.use(new passportLocal.Strategy(
 
@@ -121,7 +121,7 @@ if (auth.alone.enabled) {
     }
   ))
 }
-
+*/
 if (auth.local.enabled) {
   passport.use(new passportLocal.Strategy(
 
@@ -200,7 +200,7 @@ function _getAuthDone (req, res) {
     return
   }
 
-  if (!auth.alone.used &&
+  if (/*!auth.alone.used &&*/
       !auth.local.used &&
       !tools.isAuthorized(res.locals.user.email,
                           app.locals.config.get('authorization').validMatches,
